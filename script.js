@@ -34,6 +34,7 @@
 
   const tabsEl = document.getElementById('category-tabs');
   const listEl = document.getElementById('flavour-list');
+  const countEl = document.getElementById('flavour-count');
   let activeCategory = categories[0].name;
 
   function renderTabs() {
@@ -47,6 +48,7 @@
 
   function renderList() {
     const active = categories.find(c => c.name === activeCategory) || categories[0];
+    countEl.textContent = `${active.flavours.length} flavours in ${active.name}`;
     listEl.innerHTML = active.flavours.map(name => `
       <div class="flavour-list__item"><span class="dot"></span>${name}</div>
     `).join('');
