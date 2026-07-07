@@ -211,13 +211,15 @@ h2 { font-size: 42px; line-height: 1.2; }
   height: 84px;
 }
 .site-nav__logo { display: block; line-height: 0; }
-.site-nav__logo img { filter: brightness(0) invert(1); }
+.site-nav__logo img { height: 56px; width: auto; filter: brightness(0) invert(1); }
 .site-nav__cta { flex: none; }
 
 @media (max-width: 900px) {
   .site-nav__bar { height: 68px; }
+  .site-nav__logo img { height: 46px; }
 }
 @media (max-width: 560px) {
+  .site-nav__logo img { height: 40px; }
   .site-nav__cta { height: 44px; padding: 0 18px; font-size: 14px; }
 }
 
