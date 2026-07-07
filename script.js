@@ -69,7 +69,7 @@
   const testimonials = [
     { quote: 'Karem lets us plate a dessert that feels as considered as everything else on the menu.', name: 'Executive Chef', role: 'Boutique Hotel, Siem Reap' },
     { quote: 'The Kampot pepper flavour has become the signature of our tasting menu.', name: 'Head Pastry Chef', role: 'Fine Dining Restaurant, Phnom Penh' },
-    { quote: 'Consistent quality, every delivery — exactly what a resort kitchen needs.', name: 'F&B Director', role: 'Beach Resort, Sihanoukville' }
+    { quote: 'Consistent quality, every delivery, exactly what a resort kitchen needs.', name: 'F&B Director', role: 'Beach Resort, Sihanoukville' }
   ];
 
   const quoteEl = document.getElementById('testimonial-quote');
