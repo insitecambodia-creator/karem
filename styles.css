@@ -194,12 +194,12 @@ h2 { font-size: 42px; line-height: 1.2; }
 
 /* ============ Nav ============ */
 .site-nav {
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  background: rgba(250,248,245,0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 .site-nav__bar {
   max-width: var(--container);
@@ -211,85 +211,14 @@ h2 { font-size: 42px; line-height: 1.2; }
   height: 84px;
 }
 .site-nav__logo { display: block; line-height: 0; }
-.site-nav__links {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-.site-nav__links a {
-  font-size: 15px;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 6px 0;
-  border-bottom: 1px solid transparent;
-  transition: color .2s ease, border-color .2s ease;
-}
-.site-nav__links a:hover { color: var(--gold); border-color: var(--gold); }
-.site-nav__links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-.site-nav__cta--mobile { display: none; }
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 44px;
-  height: 44px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  flex: none;
-}
-.nav-toggle span {
-  width: 22px;
-  height: 2px;
-  background: var(--ink);
-  transition: transform .25s ease, opacity .25s ease;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.nav-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.site-nav__logo img { filter: brightness(0) invert(1); }
+.site-nav__cta { flex: none; }
 
 @media (max-width: 900px) {
   .site-nav__bar { height: 68px; }
-  .site-nav__cta--desktop { display: none; }
-  .nav-toggle { display: flex; }
-  .site-nav__links {
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: var(--cream);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px var(--gutter) 20px;
-    transform-origin: top;
-    transform: scaleY(0);
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity .2s ease, transform .2s ease;
-  }
-  .site-nav__links.is-open {
-    transform: scaleY(1);
-    opacity: 1;
-    max-height: 80vh;
-  }
-  .site-nav__links a {
-    padding: 14px 0;
-    border-bottom: 1px solid var(--line);
-    width: 100%;
-  }
-  .site-nav__cta--mobile {
-    display: inline-flex;
-    justify-content: center;
-    margin-top: 14px;
-    border-bottom: none;
-  }
+}
+@media (max-width: 560px) {
+  .site-nav__cta { height: 44px; padding: 0 18px; font-size: 14px; }
 }
 
 /* ============ Hero ============ */

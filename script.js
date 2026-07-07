@@ -1,29 +1,6 @@
 (() => {
   'use strict';
 
-  /* ---------- Mobile nav ---------- */
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  function closeNav() {
-    navToggle.setAttribute('aria-expanded', 'false');
-    navLinks.classList.remove('is-open');
-  }
-
-  navToggle.addEventListener('click', () => {
-    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!isOpen));
-    navLinks.classList.toggle('is-open', !isOpen);
-  });
-
-  navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') closeNav();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNav();
-  });
-
   /* ---------- Flavour categories ---------- */
   const categories = [
     { name: 'Classic Ice Cream', flavours: ['Vanilla', 'Chocolate', 'Chocolate Chips', 'Chocolate Extreme', 'White Chocolate', 'Coffee', 'Caramel', 'Salted Butter Caramel', 'Hazelnut', 'Pistachio', 'Rum Raisin', 'Tiramisu', 'Speculoos', 'Baileys', 'Wild Berries', 'Vanilla Brownies', 'Vanilla Cookies'] },
