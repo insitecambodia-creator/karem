@@ -102,8 +102,11 @@
   testimonialSection.addEventListener('mouseleave', startAutoplay);
 
   /* ---------- Signup form ---------- */
-  // TODO: replace with the real n8n webhook URL (Production URL from the Webhook node).
-  const N8N_WEBHOOK_URL = 'https://YOUR-N8N-INSTANCE/webhook/karem-signup';
+  // NOTE: this is n8n's TEST webhook URL — it only fires while the workflow is open
+  // in the editor with "Listen for test event" active, and only for one request.
+  // Once the workflow is built and Activated, swap this for the Production URL
+  // (same path, without "-test": /webhook/quote-request instead of /webhook-test/quote-request).
+  const N8N_WEBHOOK_URL = 'https://n8n.srv873866.hstgr.cloud/webhook-test/quote-request';
 
   const signupForm = document.getElementById('signup-form');
   const formStatus = document.getElementById('form-status');
@@ -120,11 +123,6 @@
 
     if (!signupForm.checkValidity()) {
       signupForm.reportValidity();
-      return;
-    }
-
-    if (N8N_WEBHOOK_URL.includes('YOUR-N8N-INSTANCE')) {
-      setStatus('This form isn’t connected yet — please email hello@karem.com or message us on Telegram instead.', 'is-error');
       return;
     }
 
