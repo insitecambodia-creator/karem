@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>New partner inquiry — Karem</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+  body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #ECE9E5; }
+  a { color: #B68C4C; }
+  @media screen and (max-width: 600px) {
+    .email-container { width: 100% !important; }
+    .fluid-padding { padding-left: 24px !important; padding-right: 24px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#ECE9E5;">
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    New partner inquiry from {{ $('Webhook').item.json.body.firstName }} {{ $('Webhook').item.json.body.lastName }} ({{ $('Webhook').item.json.body.businessName }})
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ECE9E5;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#FAF8F5; border-radius:16px; overflow:hidden;">
+
+          <!-- Header -->
+          <tr>
+            <td align="center" style="background-color:#181818; padding:32px 32px;">
+              <div style="font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:24px; color:#FAF8F5; letter-spacing:1px;">Karem</div>
+              <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:#B68C4C; font-weight:600; margin-top:8px;">
+                New Partner Inquiry
+              </div>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td class="fluid-padding" style="padding:36px 40px 8px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+              <div style="font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#B68C4C; font-weight:600; margin-bottom:12px;">New Lead</div>
+              <h1 style="margin:0 0 22px; font-size:22px; line-height:1.35; color:#181818; font-weight:700;">
+                {{ $('Webhook').item.json.body.firstName }} {{ $('Webhook').item.json.body.lastName }} wants to become a partner
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Data table -->
+          <tr>
+            <td class="fluid-padding" style="padding:0 40px 8px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #ECE9E5; border-radius:12px; overflow:hidden; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+                <tr style="background-color:#FAF8F5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416; width:36%; border-bottom:1px solid #ECE9E5;">Name</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600; border-bottom:1px solid #ECE9E5;">{{ $('Webhook').item.json.body.firstName }} {{ $('Webhook').item.json.body.lastName }}</td>
+                </tr>
+                <tr style="background-color:#ECE9E5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416; border-bottom:1px solid #FAF8F5;">Email</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600; border-bottom:1px solid #FAF8F5;">
+                    <a href="mailto:{{ $('Webhook').item.json.body.email }}" style="color:#181818; text-decoration:underline;">{{ $('Webhook').item.json.body.email }}</a>
+                  </td>
+                </tr>
+                <tr style="background-color:#FAF8F5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416; border-bottom:1px solid #ECE9E5;">Phone</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600; border-bottom:1px solid #ECE9E5;">{{ $('Webhook').item.json.body.phone }}</td>
+                </tr>
+                <tr style="background-color:#ECE9E5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416; border-bottom:1px solid #FAF8F5;">Business Type</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600; border-bottom:1px solid #FAF8F5;">{{ $('Webhook').item.json.body.businessType }}</td>
+                </tr>
+                <tr style="background-color:#FAF8F5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416; border-bottom:1px solid #ECE9E5;">Business Name</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600; border-bottom:1px solid #ECE9E5;">{{ $('Webhook').item.json.body.businessName }}</td>
+                </tr>
+                <tr style="background-color:#ECE9E5;">
+                  <td style="padding:14px 20px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#3A2416;">City</td>
+                  <td style="padding:14px 20px; font-size:14px; color:#181818; font-weight:600;">{{ $('Webhook').item.json.body.city }}</td>
+                </tr>
+              </table>
+              <p style="margin:14px 2px 0; font-size:12px; color:#3A2416; opacity:.7; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+                Submitted {{ $now.setZone('Asia/Phnom_Penh').toFormat('dd LLL yyyy, HH:mm') }} (Phnom Penh time)
+              </p>
+            </td>
+          </tr>
+
+          <!-- CTA -->
+          <tr>
+            <td class="fluid-padding" style="padding:28px 40px 40px;">
+              <!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="mailto:{{ $('Webhook').item.json.body.email }}" style="height:46px;v-text-anchor:middle;width:220px;" arcsize="20%" fillcolor="#181818" stroke="f">
+              <w:anchorlock/>
+              <center style="color:#FAF8F5;font-family:sans-serif;font-size:14px;font-weight:600;">Reply to {{ $('Webhook').item.json.body.firstName }}</center>
+              </v:roundrect>
+              <![endif]-->
+              <!--[if !mso]><!-->
+              <a href="mailto:{{ $('Webhook').item.json.body.email }}" style="display:inline-block; background-color:#181818; color:#FAF8F5; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:14px 28px; border-radius:10px;">Reply to {{ $('Webhook').item.json.body.firstName }}</a>
+              <!--<![endif]-->
+            </td>
+          </tr>
+
+        </table>
+
+        <!-- Footer -->
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+          <tr>
+            <td align="center" style="padding:20px 16px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+              <p style="margin:0; font-size:12px; color:#3A2416; opacity:.7;">Sent automatically from the karem-icecream.com signup form.</p>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
