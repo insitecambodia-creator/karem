@@ -235,13 +235,74 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="contact" class="section section--dark section--cta">
-    <h2>Interested in serving Karem?</h2>
-    <p>Join the restaurants and hotels already serving our flavours.</p>
-    <div class="cta-actions">
-      <a href="mailto:hello@karem.com" class="btn btn--light">Become a Partner</a>
-      <a href="https://t.me/Frank_Karem" class="btn btn--outline" target="_blank" rel="noopener">Chat on Telegram</a>
+  <!-- CTA / SIGNUP -->
+  <section id="contact" class="section section--dark section--signup">
+    <div class="form-wrap">
+      <div class="form-intro">
+        <span class="eyebrow">Become a Partner</span>
+        <h2>Interested in serving Karem?</h2>
+        <p>Tell us about your business and we'll follow up with pricing and next steps.</p>
+        <div class="form-alt-contact">
+          <a href="mailto:hello@karem.com">hello@karem.com</a>
+          <a href="https://t.me/Frank_Karem" target="_blank" rel="noopener">Chat on Telegram</a>
+        </div>
+      </div>
+
+      <form class="signup-form" id="signup-form" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-fname">First name*</label>
+            <input type="text" id="f-fname" name="firstName" autocomplete="given-name" placeholder="Sokha" required>
+          </div>
+          <div class="form-field">
+            <label for="f-lname">Last name*</label>
+            <input type="text" id="f-lname" name="lastName" autocomplete="family-name" placeholder="Chan" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-email">Email*</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@business.com" required>
+          </div>
+          <div class="form-field">
+            <label for="f-phone">Telephone</label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="012 345 678">
+          </div>
+        </div>
+
+        <fieldset class="form-field">
+          <legend>Type of business</legend>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="businessType" value="Hotel, Café, Restaurant">
+              <span>Hotel, Café, Restaurant</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="businessType" value="Shop, Supermarket">
+              <span>Shop, Supermarket</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="businessType" value="Other">
+              <span>Other</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-business">Name of business</label>
+            <input type="text" id="f-business" name="businessName" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="f-city">City in Cambodia</label>
+            <input type="text" id="f-city" name="city" autocomplete="address-level2" placeholder="e.g. Phnom Penh">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--light form-submit">Submit</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

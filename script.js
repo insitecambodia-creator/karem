@@ -100,4 +100,52 @@
   const testimonialSection = document.getElementById('testimonials');
   testimonialSection.addEventListener('mouseenter', stopAutoplay);
   testimonialSection.addEventListener('mouseleave', startAutoplay);
+
+  /* ---------- Signup form ---------- */
+  // TODO: replace with the real n8n webhook URL (Production URL from the Webhook node).
+  const N8N_WEBHOOK_URL = 'https://YOUR-N8N-INSTANCE/webhook/karem-signup';
+
+  const signupForm = document.getElementById('signup-form');
+  const formStatus = document.getElementById('form-status');
+  const submitBtn = signupForm.querySelector('.form-submit');
+
+  function setStatus(message, kind) {
+    formStatus.textContent = message;
+    formStatus.classList.remove('is-success', 'is-error');
+    if (kind) formStatus.classList.add(kind);
+  }
+
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!signupForm.checkValidity()) {
+      signupForm.reportValidity();
+      return;
+    }
+
+    if (N8N_WEBHOOK_URL.includes('YOUR-N8N-INSTANCE')) {
+      setStatus('This form isn’t connected yet — please email hello@karem.com or message us on Telegram instead.', 'is-error');
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(signupForm).entries());
+
+    submitBtn.disabled = true;
+    setStatus('Sending…', null);
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('Request failed');
+      signupForm.reset();
+      setStatus('Thanks! We’ll be in touch shortly.', 'is-success');
+    } catch (err) {
+      setStatus('Something went wrong. Please try again or email hello@karem.com.', 'is-error');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
 })();
