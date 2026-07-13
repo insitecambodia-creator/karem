@@ -83,12 +83,23 @@
   min-width: 520px;
   border-collapse: collapse;
   font-size: 15px;
+  table-layout: fixed;
 }
 .price-table th,
 .price-table td {
-  text-align: left;
+  text-align: right;
   padding: 14px 20px;
   white-space: nowrap;
+}
+.price-table th:first-child,
+.price-table td:first-child {
+  width: 46%;
+  text-align: left;
+  white-space: normal;
+}
+.price-table th:not(:first-child),
+.price-table td:not(:first-child) {
+  width: 18%;
 }
 .price-table thead th {
   font-size: 12px;
