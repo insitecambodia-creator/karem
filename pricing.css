@@ -53,6 +53,19 @@
   .pricing-intro h1 { font-size: 30px; }
 }
 
+/* ---------- Trust note ---------- */
+.pricing-trust {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.pricing-trust p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--brown);
+  margin: 0;
+}
+
 /* ---------- Price tables ---------- */
 .price-group { margin-bottom: 56px; }
 .price-group h2 {
