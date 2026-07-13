@@ -133,10 +133,17 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
-      if (!res.ok) throw new Error('Request failed');
+      if (!res.ok) {
+        const bodyText = await res.text().catch(() => '');
+        console.error('Karem signup webhook responded with an error:', res.status, bodyText);
+        throw new Error('http-status');
+      }
       signupForm.reset();
       setStatus('Thanks! We’ll be in touch shortly.', 'is-success');
     } catch (err) {
+      // A TypeError here means fetch never got an HTTP response at all —
+      // almost always a CORS block or DNS/network failure, not a workflow error.
+      console.error('Karem signup form submission failed:', err);
       setStatus('Something went wrong. Please try again or email hello@karem.com.', 'is-error');
     } finally {
       submitBtn.disabled = false;
