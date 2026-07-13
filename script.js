@@ -102,11 +102,7 @@
   testimonialSection.addEventListener('mouseleave', startAutoplay);
 
   /* ---------- Signup form ---------- */
-  // NOTE: this is n8n's TEST webhook URL — it only fires while the workflow is open
-  // in the editor with "Listen for test event" active, and only for one request.
-  // Once the workflow is built and Activated, swap this for the Production URL
-  // (same path, without "-test": /webhook/quote-request instead of /webhook-test/quote-request).
-  const N8N_WEBHOOK_URL = 'https://n8n.srv873866.hstgr.cloud/webhook-test/quote-request';
+  const N8N_WEBHOOK_URL = 'https://n8n.srv873866.hstgr.cloud/webhook/67081b87-3812-47b4-81c4-0c53bf660b8e';
 
   const signupForm = document.getElementById('signup-form');
   const formStatus = document.getElementById('form-status');
