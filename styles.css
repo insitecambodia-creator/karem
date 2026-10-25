@@ -522,20 +522,13 @@ h2 { font-size: 42px; line-height: 1.2; }
   height: 520px;
   border-radius: 16px;
   box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-  background: repeating-linear-gradient(135deg, #3A2416 0px, #3A2416 26px, #5A3825 26px, #5A3825 52px);
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
+  overflow: hidden;
 }
-.professionals-photo span {
-  font-family: ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--pale-gold);
-  background: rgba(0,0,0,0.35);
-  padding: 5px 10px;
-  border-radius: 4px;
+.professionals-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 @media (max-width: 900px) {

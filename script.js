@@ -85,7 +85,7 @@
       // A TypeError here means fetch never got an HTTP response at all —
       // almost always a CORS block or DNS/network failure, not a workflow error.
       console.error('Karem signup form submission failed:', err);
-      setStatus('Something went wrong. Please try again or email hello@karem.com.', 'is-error');
+      setStatus('Something went wrong. Please try again or email franck@karem-icecream.com.', 'is-error');
     } finally {
       submitBtn.disabled = false;
     }
