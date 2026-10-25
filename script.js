@@ -42,65 +42,6 @@
   renderTabs();
   renderList();
 
-  /* ---------- Testimonials ---------- */
-  const testimonials = [
-    { quote: 'Karem lets us plate a dessert that feels as considered as everything else on the menu.', name: 'Executive Chef', role: 'Boutique Hotel, Siem Reap' },
-    { quote: 'The Kampot pepper flavour has become the signature of our tasting menu.', name: 'Head Pastry Chef', role: 'Fine Dining Restaurant, Phnom Penh' },
-    { quote: 'Consistent quality, every delivery, exactly what a resort kitchen needs.', name: 'F&B Director', role: 'Beach Resort, Sihanoukville' }
-  ];
-
-  const quoteEl = document.getElementById('testimonial-quote');
-  const nameEl = document.getElementById('testimonial-name');
-  const roleEl = document.getElementById('testimonial-role');
-  const dotsEl = document.getElementById('testimonial-dots');
-  let testimonialIndex = 0;
-  let autoplayTimer = null;
-
-  function renderTestimonial() {
-    const t = testimonials[testimonialIndex];
-    quoteEl.textContent = `"${t.quote}"`;
-    nameEl.textContent = t.name;
-    roleEl.textContent = t.role;
-    Array.from(dotsEl.children).forEach((dot, i) => {
-      dot.classList.toggle('is-active', i === testimonialIndex);
-      dot.setAttribute('aria-selected', String(i === testimonialIndex));
-    });
-  }
-
-  function renderDots() {
-    dotsEl.innerHTML = testimonials.map((_, i) => `
-      <button type="button" role="tab" data-idx="${i}" aria-label="Show testimonial ${i + 1}"></button>
-    `).join('');
-  }
-
-  function goToTestimonial(idx) {
-    testimonialIndex = (idx + testimonials.length) % testimonials.length;
-    renderTestimonial();
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setInterval(() => goToTestimonial(testimonialIndex + 1), 6000);
-  }
-  function stopAutoplay() {
-    if (autoplayTimer) clearInterval(autoplayTimer);
-  }
-
-  dotsEl.addEventListener('click', (e) => {
-    const btn = e.target.closest('button[data-idx]');
-    if (!btn) return;
-    goToTestimonial(parseInt(btn.getAttribute('data-idx'), 10));
-    startAutoplay();
-  });
-
-  renderDots();
-  renderTestimonial();
-  startAutoplay();
-
-  const testimonialSection = document.getElementById('testimonials');
-  testimonialSection.addEventListener('mouseenter', stopAutoplay);
-  testimonialSection.addEventListener('mouseleave', startAutoplay);
-
   /* ---------- Signup form ---------- */
   const N8N_WEBHOOK_URL = 'https://n8n.srv873866.hstgr.cloud/webhook/67081b87-3812-47b4-81c4-0c53bf660b8e';
 

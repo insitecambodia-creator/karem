@@ -170,7 +170,6 @@ img { max-width: 100%; display: block; }
 .section--dark { background: var(--ink); color: var(--cream); }
 .section--dark:not(.section--cta) { max-width: none; padding-left: 0; padding-right: 0; }
 .section--dark .section__inner { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
-.section--gold { background: var(--pale-gold); max-width: none; }
 .section--tight { padding-top: 80px; padding-bottom: 80px; }
 .section--cta { text-align: center; padding-top: 100px; padding-bottom: 100px; }
 .section--cta p { color: var(--pale-gold); margin: 0 0 36px; font-size: 18px; }
@@ -571,37 +570,6 @@ h2 { font-size: 42px; line-height: 1.2; }
 }
 @media (max-width: 560px) {
   .steps-grid { grid-template-columns: 1fr; }
-}
-
-/* ============ Testimonials ============ */
-.testimonial { max-width: 800px; margin: 0 auto; text-align: center; }
-.testimonial__quote-mark { margin: 0 auto 32px; }
-.testimonial__quote {
-  font-family: 'Google Sans Flex', sans-serif;
-  font-size: 28px;
-  line-height: 1.5;
-  font-weight: 500;
-  margin: 0 0 28px;
-  min-height: 126px;
-}
-.testimonial__name { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-.testimonial__role { font-size: 14px; color: var(--brown); }
-.testimonial__dots { display: flex; justify-content: center; gap: 10px; margin-top: 36px; }
-.testimonial__dots button {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  background: rgba(24,24,24,0.25);
-  transition: background .2s ease;
-}
-.testimonial__dots button.is-active { background: var(--ink); }
-.testimonial__dots button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-@media (max-width: 560px) {
-  .testimonial__quote { font-size: 20px; min-height: 0; }
 }
 
 /* ============ Clients ============ */
