@@ -626,6 +626,20 @@ h2 { font-size: 42px; line-height: 1.2; }
 }
 .site-footer__logo { height: 44px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); }
 .site-footer__about p { font-size: 14px; line-height: 1.7; color: var(--pale-gold); max-width: 280px; }
+.site-footer__social { display: flex; gap: 12px; margin-top: 20px; }
+.site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(250,248,245,0.25);
+  color: var(--pale-gold);
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.site-footer__about .site-footer__social a:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.site-footer__social svg { width: 18px; height: 18px; }
 .site-footer__heading {
   font-size: 13px;
   letter-spacing: 1.5px;
