@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found — Karem</title>
+<meta name="description" content="This page couldn't be found. Visit the Karem homepage for our ice cream and sorbet flavours.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="assets/images/karem-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+  }
+  .not-found__logo { height: 44px; width: auto; margin-bottom: 48px; }
+  .not-found__code {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 96px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--pale-gold);
+    -webkit-text-stroke: 1.5px var(--gold);
+    margin-bottom: 24px;
+  }
+  .not-found h1 { font-size: 30px; margin: 0 0 14px; }
+  .not-found p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--brown);
+    max-width: 440px;
+    margin: 0 0 36px;
+  }
+  .not-found__actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn--outline-ink { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .btn--outline-ink:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  @media (max-width: 560px) {
+    .not-found__code { font-size: 64px; }
+    .not-found h1 { font-size: 24px; }
+    .not-found__actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="not-found">
+  <a href="index.html" aria-label="Karem home">
+    <img src="assets/images/karem-logo.svg" alt="Karem" class="not-found__logo">
+  </a>
+  <div class="not-found__code">404</div>
+  <h1>This page has melted away.</h1>
+  <p>The page you're looking for doesn't exist, maybe it moved, or the link's out of date. Let's get you back to something sweeter.</p>
+  <div class="not-found__actions">
+    <a href="index.html" class="btn btn--dark">Back to Homepage</a>
+    <a href="index.html#contact" class="btn btn--outline-ink">Contact Us</a>
+  </div>
+</main>
+
+</body>
+</html>
