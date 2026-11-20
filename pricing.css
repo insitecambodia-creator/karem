@@ -101,6 +101,15 @@
 .price-table td:not(:first-child) {
   width: 18%;
 }
+.price-table--2col th:first-child,
+.price-table--2col td:first-child {
+  width: 60%;
+}
+.price-table--2col th:not(:first-child),
+.price-table--2col td:not(:first-child) {
+  width: 20%;
+}
+.price-table--2col { min-width: 360px; }
 .price-table thead th {
   font-size: 12px;
   letter-spacing: 1.5px;
