@@ -385,7 +385,7 @@ h2 { font-size: 42px; line-height: 1.2; }
   gap: 48px;
 }
 .why-item { text-align: center; padding: 0 12px; }
-.why-item svg { margin: 0 auto 24px; }
+.why-item svg, .why-item img { margin: 0 auto 24px; }
 .why-item h3 { font-size: 20px; margin: 0 0 12px; }
 .why-item p { font-size: 15px; line-height: 1.6; color: var(--brown); }
 
