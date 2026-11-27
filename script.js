@@ -1,6 +1,56 @@
 (() => {
   'use strict';
 
+  /* ---------- Language ---------- */
+  // The French pages (/fr/) set <html lang="fr">. Category and flavour names stay
+  // in English in the data below; French pages show them through these maps.
+  const isFrench = (document.documentElement.lang || '').toLowerCase().startsWith('fr');
+
+  const FR_CATEGORIES = {
+    'Classic Ice Cream': 'Glaces classiques',
+    'Asian Collection': 'Collection asiatique',
+    'Fruit Sorbets': 'Sorbets aux fruits',
+    'Special Collection': 'Collection spéciale'
+  };
+
+  const FR_FLAVOURS = {
+    'Vanilla': 'Vanille', 'Chocolate': 'Chocolat', 'Chocolate Chips': 'Pépites de chocolat',
+    'Chocolate Extreme': 'Chocolat extrême', 'White Chocolate': 'Chocolat blanc', 'Coffee': 'Café',
+    'Caramel': 'Caramel', 'Salted Butter Caramel': 'Caramel au beurre salé', 'Hazelnut': 'Noisette',
+    'Pistachio': 'Pistache', 'Rum Raisin': 'Rhum raisin', 'Tiramisu': 'Tiramisu', 'Speculoos': 'Spéculoos',
+    'Baileys': 'Baileys', 'Wild Berries': 'Fruits des bois', 'Vanilla Brownies': 'Vanille brownies',
+    'Vanilla Cookies': 'Vanille cookies', 'Cinnamon': 'Cannelle',
+    'Matcha Green Tea': 'Thé vert matcha', 'Green Tea': 'Thé vert', 'Black Sesame': 'Sésame noir',
+    'Pandan Leaves': 'Feuilles de pandan', 'Taro': 'Taro', 'Durian': 'Durian', 'Jackfruit': 'Jacquier',
+    'Ginger': 'Gingembre', 'Ginger Lemongrass': 'Gingembre citronnelle', 'Honey (Mondolkiri)': 'Miel (Mondolkiri)',
+    'Pepper Kampot': 'Poivre de Kampot', 'Chocolate Extreme Pepper': 'Chocolat extrême au poivre',
+    'Wasabi': 'Wasabi', 'Romdeng Lemongrass': 'Romdeng citronnelle',
+    'Mango': 'Mangue', 'Mango Passion': 'Mangue passion', 'Passion': 'Passion', 'Pineapple': 'Ananas',
+    'Strawberry': 'Fraise', 'Raspberry': 'Framboise', 'Blueberry': 'Myrtille', 'Orange': 'Orange',
+    'Pear': 'Poire', 'Melon': 'Melon', 'Coconut': 'Coco', 'Coconut Chili': 'Coco piment',
+    'Coconut Ginger': 'Coco gingembre', 'Lime': 'Citron vert', 'Lime Basil': 'Citron vert basilic',
+    'Lime Kampot Pepper': 'Citron vert poivre de Kampot', 'Lychee': 'Litchi', 'Longan': 'Longane',
+    'Soursop': 'Corossol', 'Red Dragon Fruit': 'Fruit du dragon rouge', 'Strawberry Basil': 'Fraise basilic',
+    'Almond Milk': 'Lait d’amande', 'Banana': 'Banane', 'Banana Caramelised Peanuts': 'Banane cacahuètes caramélisées',
+    'Mint Chocolate Chips': 'Menthe pépites de chocolat', 'Yoghurt Lime': 'Yaourt citron vert'
+  };
+
+  const t = isFrench ? {
+    category: name => FR_CATEGORIES[name] || name,
+    flavour: name => FR_FLAVOURS[name] || name,
+    count: (n, cat) => `${cat}\u00A0: ${n} parfums`,
+    sending: 'Envoi…',
+    success: 'Merci\u00A0! Nous revenons vers vous très vite.',
+    error: 'Une erreur s’est produite. Réessayez ou écrivez à karemcambodia@gmail.com.'
+  } : {
+    category: name => name,
+    flavour: name => name,
+    count: (n, cat) => `${n} flavours in ${cat}`,
+    sending: 'Sending…',
+    success: 'Thanks! We’ll be in touch shortly.',
+    error: 'Something went wrong. Please try again or email karemcambodia@gmail.com.'
+  };
+
   /* ---------- Flavour categories ---------- */
   const categories = [
     { name: 'Classic Ice Cream', flavours: ['Vanilla', 'Chocolate', 'Chocolate Chips', 'Chocolate Extreme', 'White Chocolate', 'Coffee', 'Caramel', 'Salted Butter Caramel', 'Hazelnut', 'Pistachio', 'Rum Raisin', 'Tiramisu', 'Speculoos', 'Baileys', 'Wild Berries', 'Vanilla Brownies', 'Vanilla Cookies', 'Cinnamon'] },
@@ -18,16 +68,16 @@
     tabsEl.innerHTML = categories.map(cat => `
       <button type="button" role="tab" aria-selected="${cat.name === activeCategory}"
         class="${cat.name === activeCategory ? 'is-active' : ''}" data-cat="${cat.name}">
-        ${cat.name}
+        ${t.category(cat.name)}
       </button>
     `).join('');
   }
 
   function renderList() {
     const active = categories.find(c => c.name === activeCategory) || categories[0];
-    countEl.textContent = `${active.flavours.length} flavours in ${active.name}`;
+    countEl.textContent = t.count(active.flavours.length, t.category(active.name));
     listEl.innerHTML = active.flavours.map(name => `
-      <div class="flavour-list__item"><span class="dot"></span>${name}</div>
+      <div class="flavour-list__item"><span class="dot"></span>${t.flavour(name)}</div>
     `).join('');
   }
 
@@ -66,7 +116,7 @@
     const data = Object.fromEntries(new FormData(signupForm).entries());
 
     submitBtn.disabled = true;
-    setStatus('Sending…', null);
+    setStatus(t.sending, null);
 
     try {
       const res = await fetch(N8N_WEBHOOK_URL, {
@@ -80,12 +130,12 @@
         throw new Error('http-status');
       }
       signupForm.reset();
-      setStatus('Thanks! We’ll be in touch shortly.', 'is-success');
+      setStatus(t.success, 'is-success');
     } catch (err) {
       // A TypeError here means fetch never got an HTTP response at all —
       // almost always a CORS block or DNS/network failure, not a workflow error.
       console.error('Karem signup form submission failed:', err);
-      setStatus('Something went wrong. Please try again or email karemcambodia@gmail.com.', 'is-error');
+      setStatus(t.error, 'is-error');
     } finally {
       submitBtn.disabled = false;
     }

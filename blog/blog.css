@@ -13,10 +13,19 @@
 }
 .blog-header__logo { display: block; line-height: 0; }
 .blog-header__logo img { height: 47px; width: auto; }
+.blog-header__right { display: flex; align-items: center; gap: 12px; }
+.blog-header .lang-switch { color: var(--ink); }
+.blog-header .lang-switch:hover { color: var(--gold); }
 
 @media (max-width: 560px) {
   .blog-header__logo img { height: 36px; }
   .blog-header__bar .btn { height: 40px; padding: 0 16px; font-size: 13.5px; }
+  .blog-header__right { gap: 4px; }
+}
+@media (max-width: 380px) {
+  .blog-header__logo img { height: 32px; }
+  .blog-header__bar .btn { padding: 0 12px; font-size: 13px; }
+  .blog-header .lang-switch { min-width: 36px; font-size: 13px; }
 }
 
 /* ---------- Shared main column ---------- */
