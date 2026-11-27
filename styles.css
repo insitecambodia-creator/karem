@@ -614,35 +614,6 @@ h2 { font-size: 42px; line-height: 1.2; }
   .steps-grid { grid-template-columns: 1fr; }
 }
 
-/* ============ Clients ============ */
-.clients-label {
-  text-align: center;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--brown);
-  margin-bottom: 40px;
-}
-.clients-row { display: flex; justify-content: center; align-items: center; gap: 56px; flex-wrap: wrap; }
-.client-chip {
-  font-family: ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--brown);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 14px 20px;
-  opacity: .7;
-  transition: opacity .2s ease;
-}
-.client-chip:hover { opacity: 1; }
-
-@media (max-width: 560px) {
-  .clients-row { gap: 20px 28px; }
-}
-
-
 /* ============ Footer ============ */
 .site-footer {
   background: var(--brown);
