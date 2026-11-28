@@ -1,0 +1,17 @@
+// Cloudflare Workers Builds config for the Karem static site.
+// The site is plain HTML/CSS/JS served as static assets from the repo root;
+// there is no build step and no Worker script.
+{
+  "name": "karem",
+  "compatibility_date": "2026-11-01",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  },
+  // Required by `npx wrangler preview`, the command Cloudflare runs for
+  // PR / non-production branch builds. Empty means "use the settings above".
+  "previews": {}
+}
