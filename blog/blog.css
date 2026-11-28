@@ -113,6 +113,23 @@
   .article h2 { font-size: 21px; }
 }
 
+/* ---------- Article hero image ---------- */
+.article__hero { margin: 0 0 40px; }
+.article__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+  border-radius: 18px;
+  background: var(--pale-gold);
+}
+
+@media (max-width: 560px) {
+  .article__hero { margin-bottom: 32px; }
+  .article__hero img { border-radius: 14px; }
+}
+
 /* ---------- Article tables ---------- */
 .article-table-scroll {
   overflow-x: auto;
